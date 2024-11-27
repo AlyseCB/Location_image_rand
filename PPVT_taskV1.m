@@ -12,10 +12,10 @@
 % PPVT will quit if 7+ errors occur in one set
 % PPVT states that participants must get all of the first set right
 % to be valid. task will run all the way through a then at the end tell you if you need 
-% to run a earlier set. Message "Take a short break" will appear, 
+% to run an earlier set. Message "Take a short break" will appear, 
 % Run task again and code Y=1 for run time 2, this should also create a new filename   
 
-% Note > The var Finish on the sencond run might need changing if you think they need to 
+% Note > The var Finish on the second run might need changing if you think they need to 
 % go back more than one set see ie Finish= 12 to Finish = 24 to run through 2 sets 
 % See line 108
 
@@ -30,6 +30,7 @@ clear all; close all; clc;
 
 global p wptr exp_dir
 
+% Get screen information then code not needed
 % PsychDefaultSetup(2);
 % [window, windowRect] = PsychImaging(OpenWindow', screenNumber, grey)
 % %rect =Screen('rect', window)

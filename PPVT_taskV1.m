@@ -1,24 +1,27 @@
 %**************************************************************************
 % PPVT- 4a 4way rand
 % Created by Alyse Brown, Jan 2020
-% each trial the image locations are randimised
+% 
+% Needs psychtoolbox
+%
+% each trial the image locations are randomised
 % accept numbers (1-4) as keypress
 %
 % Get (and set) information about a window or screen:
 
 % PPVT will quit if 7+ errors occur in one set
-% PPVT states that partipants must get all of the first set right
+% PPVT states that participants must get all of the first set right
 % to be valid. task will run all the way through a then at the end tell you if you need 
 % to run a earlier set. Message "Take a short break" will appear, 
 % Run task again and code Y=1 for run time 2, this should also create a new filename   
 
-%Note: The var Finish on the sencond run might need changing if you think they need to 
-%go back more than one set see ie Finish= 12 to Finish = 24 to run through 2 sets 
+% Note > The var Finish on the sencond run might need changing if you think they need to 
+% go back more than one set see ie Finish= 12 to Finish = 24 to run through 2 sets 
 % See line 108
 
 %**************************************************************************
 
-%% Important things to do before we start:
+%% House keeping 
 % Clear all old variables, globals, functions and MEX links,
 clear all; close all; clc;
 %Screen('Preference','SkipSyncTests',1); % com this out
@@ -48,8 +51,6 @@ KbName('UnifyKeyNames')
 InitializePsychSound
 %  nrchannels = 2;
 %  pnhandle = PsychPortAudio('Open', [], [], 3, nrchannels);
-
-
     
     
 % %%Load in the sound 
@@ -58,7 +59,7 @@ InitializePsychSound
 % 
 % PyschPortAudio('FillBuffer',[bing';zeros(1,size(bing,1))]);
 
-%set some vars for later
+%set some vars for PPVT quit rule
 setcount = 0 ;    
 error_count = 0;   
 
@@ -428,7 +429,7 @@ end
                     WaitSecs(2)
                     
                 else
-                    %quitting - show happy message
+                    % quitting - show happy message
                     DrawFormattedText(wptr,'Well Done!','center','center');
                     Screen('Flip',wptr);
                     WaitSecs(2)
